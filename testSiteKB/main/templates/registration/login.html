@@ -1,0 +1,17 @@
+<!-- templates/registration/login.html -->
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<center>
+  <h2 style="color:#FFFFFF">
+    Войдите в систему с логином и паролем от устройства<br>
+    (данные для входа в документации и на устройстве)
+  </h2>
+  <form style="color:#FFFFFF" method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Войти</button>
+  </form>
+</center>
+{% endblock content %}

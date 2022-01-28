@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+КФХ Цирулев (Server2-VM3)
+{% endblock %}
+
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <br>
+    ИП Цирулев Е.П., глава крестьянского (фермерского) хозяйства
+    <br>
+    Исследовательская лаборатория
+    <br>
+
+    <table border="0" width="100%" cellpadding="3" align="left">
+
+        <tr>
+            <td align="left">БЛАНК ЗАДАНИЕ №: </td>
+            <td align="center"><input name="NomerBlanka" style="width: 80%;" type="number"></td>
+            <td width="75%"></td>
+        </tr>
+
+        <tr>
+            <td align="left">Дата отбора: </td>
+            <td align="center"><input name="DataOtbora" style="width: 80%;" type="date" value={{today}}></td>
+            <td width="75%"></td>
+        </tr>
+
+        <tr>
+            <td align="left">Номер поля/партии: </td>
+            <td align="center"><input name="NomerPolyaPartii" style="width: 80%;" type="number"></td>
+            <td width="75%"></td>
+        </tr>
+
+        <tr>
+            <td align="left">Вид продукции: </td>
+            <td align="center"><input name="VidProdukcii" style="width: 80%;" type="text"></td>
+            <td width="75%"></td>
+        </tr>
+
+        <tr>
+            <td align="left">Количество: </td>
+            <td align="center"><input name="Kolvo" style="width: 80%;" type="number"></td>
+            <td width="75%"></td>
+        </tr>
+
+        <tr>
+            <td colspan="3" align="left">НД на методы испытания: Практикум по биологии почв. Зенова Г.М., Степанов А.Л., Лихачева А.А. и др. - МГУ, 2002 г.</td>
+        </tr>
+    </table>
+
+    <table border="1" width="100%" cellpadding="5" align="center">
+
+        <tr>
+            <th rowspan="2" width="30%">Наименование показателя</th>
+            <th rowspan="2" width="20%">Возбудитель</th>
+            <th colspan="3" width="50%">Результат испытаний</th>
+        </tr>
+        <tr>
+            <th width="16%">Средняя концентрация, КОЕ/г почвы</th>
+            <th width="16%">Соотношение грибов в % к их общему числу</th>
+            <th width="16%">Соотношение бактериальных клеток в % к их общему числу</th>
+        </tr>
+
+        <tr align="center">
+            <td>Фитофтороз</td>
+            <td>Phytophthora sp.</td>
+            <td><input name="Phytophthora_KOE" style="width: 80%;" type="number"></td>
+            <td><input name="Phytophthora_SG" style="width: 80%;" type="number"></td>
+            <td><input name="Phytophthora_SB" style="width: 80%;" type="number"></td>
+        </tr>
+
+        <tr align="center">
+            <td>Альтернариоз</td>
+            <td>Alternaria sp.</td>
+            <td><input name="Alternaria_KOE" style="width: 80%;" type="number"></td>
+            <td><input name="Alternaria_SG" style="width: 80%;" type="number"></td>
+            <td><input name="Alternaria_SB" style="width: 80%;" type="number"></td>
+        </tr>
+
+        <tr align="center">
+            <td>Фузариоз</td>
+            <td>Fusarium sp.</td>
+            <td><input name="Fusarium_KOE" style="width: 80%;" type="number"></td>
+            <td><input name="Fusarium_SG" style="width: 80%;" type="number"></td>
+            <td><input name="Fusarium_SB" style="width: 80%;" type="number"></td>
+        </tr>
+
+        <tr align="center">
+            <td>Вертициллезное увядание</td>
+            <td>Verticillium sp.</td>
+            <td><input name="Verticillium_KOE" style="width: 80%;" type="number"></td>
+            <td><input name="Verticillium_SG" style="width: 80%;" type="number"></td>
+            <td><input name="Verticillium_SB" style="width: 80%;" type="number"></td>
+        </tr>
+
+        <tr align="center">
+            <td>Обыкновенная парша</td>
+            <td>Streptomyces scabies</td>
+            <td><input name="Streptomyces_KOE" style="width: 80%;" type="number"></td>
+            <td><input name="Streptomyces_SG" style="width: 80%;" type="number"></td>
+            <td><input name="Streptomyces_SB" style="width: 80%;" type="number"></td>
+        </tr>
+
+        <tr align="center">
+            <td>Серебристая парша</td>
+            <td>Helminthosporium solani</td>
+            <td><input name="Helminthosporium_KOE" style="width: 80%;" type="number"></td>
+            <td><input name="Helminthosporium_SG" style="width: 80%;" type="number"></td>
+            <td><input name="Helminthosporium_SB" style="width: 80%;" type="number"></td>
+        </tr>
+
+        <tr align="center">
+            <td>Ризоктониоз, Черная парша</td>
+            <td>Rhizoctonia sp.</td>
+            <td><input name="Rhizoctonia_KOE" style="width: 80%;" type="number"></td>
+            <td><input name="Rhizoctonia_SG" style="width: 80%;" type="number"></td>
+            <td><input name="Rhizoctonia_SB" style="width: 80%;" type="number"></td>
+        </tr>
+
+        <tr align="center">
+            <td>Бугорчатая парша</td>
+            <td>Oospora pustulans</td>
+            <td><input name="Oospora_pustulans_KOE" style="width: 80%;" type="number"></td>
+            <td><input name="Oospora_pustulans_SG" style="width: 80%;" type="number"></td>
+            <td><input name="Oospora_pustulans_SB" style="width: 80%;" type="number"></td>
+        </tr>
+
+        <tr align="center">
+            <td>Фомоз</td>
+            <td>Phoma sp.</td>
+            <td><input name="Phoma_KOE" style="width: 80%;" type="number"></td>
+            <td><input name="Phoma_SG" style="width: 80%;" type="number"></td>
+            <td><input name="Phoma_SB" style="width: 80%;" type="number"></td>
+        </tr>
+
+        <tr align="center">
+            <td>Антракноз</td>
+            <td>Colletotrichum sp.</td>
+            <td><input name="Colletotrichum_KOE" style="width: 80%;" type="number"></td>
+            <td><input name="Colletotrichum_SG" style="width: 80%;" type="number"></td>
+            <td><input name="Colletotrichum_SB" style="width: 80%;" type="number"></td>
+        </tr>
+
+        <tr align="center">
+            <td>Антракноз</td>
+            <td>Colletotrichum sp.</td>
+            <td><input name="Colletotrichum_KOE" style="width: 80%;" type="number"></td>
+            <td><input name="Colletotrichum_SG" style="width: 80%;" type="number"></td>
+            <td><input name="Colletotrichum_SB" style="width: 80%;" type="number"></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </table>
+    <button type="submit" name="SaveButton">Записать данные в БД</button>
+    <button type="submit" name="EraseButton">Очистить БД</button>
+</form>
+{% endblock %}
+

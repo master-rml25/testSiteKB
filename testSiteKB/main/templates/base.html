@@ -1,0 +1,110 @@
+<!doctype html>
+{% load static %}
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+    <style>
+        html {
+            overflow-x: auto;
+            height: 100%;
+        }
+
+        /* Цвет фона веб-страницы */
+        body {
+            background-color: #383838;
+            height: 100%;
+            color:#FFFFFF;
+            font-size: 14pt;
+        }
+        a {
+            color:#FFFFFF;
+            text-decoration:none
+        }
+
+        a:active {
+            color:#FFFFFF;
+            text-decoration:none
+        }
+
+        a:visited {
+            color:#FFFFFF;
+            text-decoration:none
+        }
+
+        a:hover {
+            color:#FFFFFF;
+            text-decoration:none
+        }
+
+        #copyright {
+            margin-bottom: 20px;
+            text-align: center;
+            color:#FFFFFF;
+            font-size: 12pt;
+        }
+        .menu {
+            text-align: right;
+            padding: 15px 15px 15px 15px;
+            color:#FFFFFF;
+            margin-top: 10px;
+            margin-bot: 10px;
+        }
+        input {
+            font-size: 12pt;
+            text-align: center;
+            margin-top: 2px;
+            margin-bottom: 2px;
+        }
+        button {
+            font-size: 14pt;
+            text-align: center;
+            margin-top: 10px;
+            margin-bot: 10px;
+        }
+        table {
+            padding: 0px 10px 0px 10px;
+            font-size: 14pt;
+            margin-top: 10px;
+            margin-bot: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header style="border-bottom-style:solid;">
+        <nav>
+            <div class="menu">
+                {% if user.is_authenticated %}
+                    {% if user.get_username == "admin" %}
+                        <a href="./admin">АдминПанель</a>
+                    {% endif %}
+                    <a style="margin-left: 20px;" href="{% url 'home' %}">Главная</a>
+                    <a style="margin-left: 20px;"href="{% url 'about' %}">О нас</a>
+                    <a style="margin-left: 20px;"href="{% url 'logout' %}">{{ user.get_username }}, "{{ organisation }}"</a>
+                {% else %}
+                    <a style="margin-left: 20px;"href="{% url 'home' %}">Главная</a>
+                    <a style="margin-left: 20px;"href="{% url 'about' %}">О нас</a>
+                    <a style="margin-left: 20px;"href="{% url 'login' %}">Вход</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+    {% block content %}
+
+
+    {% endblock %}
+
+    <br>
+    <div id="copyright">ООО "УЗВ" Copyright © 1993. All rights reserved</div>
+
+</body>
+</html>
